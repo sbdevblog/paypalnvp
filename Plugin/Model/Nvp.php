@@ -19,7 +19,7 @@ class Nvp
      */
     public function beforeCall(AbstractApi $subject, $title, array $request)
     {
-        if (isset($request['ITEMAMT']) + isset($request['SHIPPINGAMT']) + isset($request['TAXAMT'])) {
+        if (isset($request['ITEMAMT']) && isset($request['SHIPPINGAMT']) && isset($request['TAXAMT'])) {
             $request['AMT'] = $request['ITEMAMT'] + $request['SHIPPINGAMT'] + $request['TAXAMT'];
         }
         return [$title, $request];
